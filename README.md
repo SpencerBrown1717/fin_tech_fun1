@@ -1,62 +1,65 @@
-# Agentic Fintech Compliance Dashboard
+# Agentic Fintech Compliance Tools
 
-A production-ready, enterprise-grade dashboard showcasing AI-powered financial compliance automation. This application demonstrates how agentic AI systems can transform compliance processes in financial services with unprecedented accuracy, efficiency, and auditability.
+A production-ready, enterprise-grade suite of APIs showcasing AI-powered financial compliance automation. This application demonstrates how agentic AI systems can transform compliance processes in financial services with unprecedented accuracy, efficiency, and auditability.
 
 ## Business Value Proposition
 
-- **Cost Reduction**: 88% reduction in processing time translates to significant operational cost savings
+- **Cost Reduction**: Significant reduction in processing time translates to operational cost savings
 - **Risk Mitigation**: Real-time compliance monitoring reduces regulatory exposure and potential fines
-- **Scalability**: Handles 8x the volume of traditional manual review processes
-- **Auditability**: Complete decision tracing with blockchain verification ensures regulatory defensibility
+- **Scalability**: Handles higher volumes than traditional manual review processes
+- **Auditability**: Complete decision tracing ensures regulatory defensibility
 
-## Agentic AI Workflow
+## Specialized Financial Compliance Tools
 
-This MCP (Minimum Compelling Product) demonstrates the full agentic AI workflow for financial compliance:
+This project provides a comprehensive suite of financial compliance tools:
 
-1. **Multi-Modal Input Processing**
-   - Speech-to-text processing of call recordings with tone analysis
-   - Structured data analysis of trade and transaction records
-   - Natural language understanding of client communications
+1. **Transaction Analysis**
+   - Advanced risk assessment algorithms
+   - Pattern detection for structuring and velocity
+   - Detailed risk scoring based on multiple factors
+   - Recommendations based on risk factors
+   - Audit trail with unique analysis IDs
 
-2. **Specialized Agent Orchestration**
-   - Call Analysis Agent: Monitors for disclosure and suitability issues
-   - Trade Verification Agent: Validates transactions against regulatory requirements
-   - Complaint Resolution Agent: Analyzes and categorizes client feedback
+2. **KYC Verification**
+   - Advanced identity verification checks
+   - Risk profiling based on multiple factors
+   - Document verification and expiry assessment
+   - Recommendations based on risk factors
+   - Audit trail with unique verification IDs
 
-3. **Decision Intelligence Layer**
-   - Multi-model consensus with confidence scoring
-   - Dynamic thresholds based on risk profiles
-   - Human-in-the-loop escalation for edge cases
-   - Complete decision tracing and explanation generation
+3. **Communication Monitoring**
+   - Advanced NLP analysis with sentiment detection
+   - Intent analysis and contextual understanding
+   - Flagged term detection with context and severity
+   - Regulatory compliance checking
+   - Channel-specific risk assessment
+   - Detailed recommendations and audit trail
 
-4. **Continuous Learning System**
-   - Feedback loops from human reviewers
-   - Regulatory update integration
-   - Performance analytics and model refinement
+4. **Regulatory Updates**
+   - Personalized regulatory feeds
+   - Advanced filtering capabilities
+   - Subscription management
+   - Impact analysis tools
+   - Metadata extraction and relevance scoring
 
-## Model Context Protocol (MCP) Integration
+5. **Compliance Reporting**
+   - Templated reports (SAR, CTR, internal compliance)
+   - Comprehensive analytics
+   - Automatic insight generation
+   - Recommendation engine
+   - Flexible report generation with customization options
 
-This project includes a Model Context Protocol (MCP) server implementation that exposes financial compliance tools to agentic workflows. The MCP server allows AI agents to access specialized compliance functionality through a standardized interface.
+## API Architecture
 
-### MCP Features
-
-- **Transaction Analysis**: Analyze financial transactions for compliance issues
-- **KYC Verification**: Verify customer KYC compliance status
-- **Communication Monitoring**: Analyze customer communications for compliance issues
-- **Regulatory Updates**: Get the latest regulatory updates and changes
-- **Compliance Reporting**: Generate detailed compliance reports
-
-### MCP Architecture
-
-The MCP server is built using:
-- **Next.js API Routes**: Core MCP server implementation
+The compliance tools are built using:
+- **Next.js API Routes**: Core API implementation
 - **TypeScript**: Type-safe implementation
-- **JSON Schema**: Standardized tool definitions
-- **RESTful APIs**: Communication protocol for AI agents
+- **JSON Schema**: Standardized data structures
+- **RESTful APIs**: Communication protocol
 
-### Secure MCP Implementation
+## Security Implementation
 
-This implementation follows best practices for secure MCP deployment:
+This implementation follows best practices for secure deployment:
 
 1. **Authentication**:
    - API key authentication for all endpoints
@@ -78,48 +81,125 @@ This implementation follows best practices for secure MCP deployment:
    - Sanitization of user inputs to prevent injection attacks
    - Parameter validation to ensure data integrity
 
-### Using the MCP Server
+## Getting Started
 
-1. Install the required dependencies:
+1. Clone the repository:
+   ```bash
+   git clone https://github.com/yourusername/agentic-fintech-compliance.git
+   cd agentic-fintech-compliance
+   ```
+
+2. Install dependencies:
    ```bash
    npm install
    ```
 
-2. Set environment variables in a `.env.local` file (never commit this file):
+3. Create a `.env.local` file with your environment variables (never commit this file):
    ```
+   # API Configuration - replace with your actual values
    COMPLIANCE_API_BASE=https://your-compliance-api.com
    COMPLIANCE_API_KEY=your-api-key
+   
+   # Security
    JWT_SECRET=your-secure-random-string
    ```
 
-3. Run the MCP server:
+4. Run the development server:
    ```bash
    npm run dev
    ```
-   
-   For production:
-   ```bash
-   npm run build
-   npm start
-   ```
 
-4. Access the server at http://localhost:3000
+5. Open [http://localhost:3000](http://localhost:3000) in your browser
 
-### Testing the MCP Server
+## API Usage Examples
 
-The project includes test endpoints to verify that the MCP server is working properly:
+### Transaction Analysis
 
 ```bash
-# Test the transaction analysis tool
 curl -X POST http://localhost:3000/api/compliance/transaction \
   -H "Content-Type: application/json" \
   -H "Authorization: Bearer YOUR_API_KEY" \
-  -d '{"transaction_id":"TX123","amount":10000,"sender":{"id":"S123","name":"John Doe"},"recipient":{"id":"R456","name":"Jane Smith"}}'
+  -d '{
+    "transaction_id": "TX123",
+    "amount": 10000,
+    "currency": "USD",
+    "transaction_type": "wire_transfer",
+    "sender": {
+      "id": "S123",
+      "name": "John Doe",
+      "country": "US"
+    },
+    "recipient": {
+      "id": "R456",
+      "name": "Jane Smith",
+      "country": "UK"
+    },
+    "purpose": "Business services"
+  }'
 ```
 
-### Integrating with LLMs
+### KYC Verification
 
-The MCP server can be integrated with various LLMs including OpenAI's GPT models and Anthropic's Claude. See the documentation in `/docs/agentic-workflow.md` for detailed integration examples.
+```bash
+curl -X POST http://localhost:3000/api/compliance/kyc \
+  -H "Content-Type: application/json" \
+  -H "Authorization: Bearer YOUR_API_KEY" \
+  -d '{
+    "customer_id": "C123",
+    "name": "John Doe",
+    "nationality": "US",
+    "date_of_birth": "1980-01-01",
+    "document_type": "passport",
+    "document_number": "AB123456",
+    "document_expiry": "2030-01-01"
+  }'
+```
+
+### Communication Monitoring
+
+```bash
+curl -X POST http://localhost:3000/api/compliance/communication \
+  -H "Content-Type: application/json" \
+  -H "Authorization: Bearer YOUR_API_KEY" \
+  -d '{
+    "communication_id": "CM123",
+    "content": "I would like to discuss investment opportunities",
+    "sender": "customer@example.com",
+    "recipient": "advisor@company.com",
+    "channel": "email",
+    "analyze_sentiment": true,
+    "detect_intent": true
+  }'
+```
+
+### Regulatory Updates
+
+```bash
+curl -X GET "http://localhost:3000/api/compliance/regulatory?jurisdiction=US&category=AML&impact_level=high" \
+  -H "Authorization: Bearer YOUR_API_KEY"
+```
+
+### Compliance Reporting
+
+```bash
+curl -X POST http://localhost:3000/api/compliance/reporting \
+  -H "Content-Type: application/json" \
+  -H "Authorization: Bearer YOUR_API_KEY" \
+  -d '{
+    "template_id": "template-001",
+    "report_name": "Quarterly AML Report Q1 2025",
+    "report_data": {
+      "reporting_period_start": "2025-01-01",
+      "reporting_period_end": "2025-03-31",
+      "prepared_by": "Compliance Team"
+    },
+    "include_analytics": true
+  }'
+```
+
+## Integrating with LLMs
+
+The compliance APIs can be integrated with various LLMs including OpenAI's GPT models and Anthropic's Claude.
 
 Example OpenAI integration:
 
@@ -137,20 +217,25 @@ const tools = [
         properties: {
           transaction_id: { type: "string" },
           amount: { type: "number" },
+          currency: { type: "string" },
+          transaction_type: { type: "string" },
           sender: { 
             type: "object",
             properties: {
               id: { type: "string" },
-              name: { type: "string" }
+              name: { type: "string" },
+              country: { type: "string" }
             }
           },
           recipient: {
             type: "object",
             properties: {
               id: { type: "string" },
-              name: { type: "string" }
+              name: { type: "string" },
+              country: { type: "string" }
             }
-          }
+          },
+          purpose: { type: "string" }
         },
         required: ["transaction_id", "amount"]
       }
@@ -167,53 +252,18 @@ const response = await openai.chat.completions.create({
 });
 ```
 
-## Features
-
-- **System Architecture Visualization**: Detailed breakdown of the AI compliance system's input, processing, and decision layers
-- **Performance Metrics**: Interactive charts comparing AI vs. human performance metrics
-- **Decision Tracing**: Step-by-step visualization of AI decision-making for compliance reviews
-- **Responsive Design**: Fully responsive UI that works on all device sizes
-- **MCP Integration**: Full Model Context Protocol implementation for AI agent integration
-
-## Getting Started
-
-1. Clone the repository:
-   ```bash
-   git clone https://github.com/SpencerBrown1717/fin_tech_fun1.git
-   cd fin_tech_fun1
-   ```
-
-2. Install dependencies:
-   ```bash
-   npm install
-   ```
-
-3. Create a `.env.local` file with your environment variables:
-   ```
-   # API Configuration
-   COMPLIANCE_API_BASE=https://your-compliance-api.com
-   COMPLIANCE_API_KEY=your-api-key
-   
-   # Security
-   JWT_SECRET=your-secure-random-string
-   ```
-
-4. Run the development server:
-   ```bash
-   npm run dev
-   ```
-
-5. Open [http://localhost:3000](http://localhost:3000) in your browser
-
 ## Security Considerations
 
-- All API keys and secrets should be stored in environment variables, never in code
-- Use proper authentication for all API endpoints
-- Implement rate limiting to prevent abuse
-- Validate and sanitize all user inputs
-- Keep dependencies updated to patch security vulnerabilities
-- Use HTTPS in production environments
-- Implement proper error handling to avoid information leakage
+- **Environment Variables**: All API keys, secrets, and credentials should be stored in environment variables, never in code
+- **Authentication**: Use proper authentication for all API endpoints
+- **Rate Limiting**: Implement rate limiting to prevent abuse
+- **Input Validation**: Validate and sanitize all user inputs
+- **Dependencies**: Keep dependencies updated to patch security vulnerabilities
+- **HTTPS**: Use HTTPS in production environments
+- **Error Handling**: Implement proper error handling to avoid information leakage
+- **Secrets**: Never commit `.env` files or any files containing secrets to version control
+- **Access Control**: Implement proper access controls for all API endpoints
+- **Audit Logging**: Maintain comprehensive audit logs for all sensitive operations
 
 ## License
 
