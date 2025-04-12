@@ -1,4 +1,4 @@
-# Agentic Fintech Compliance Tools
+# Agentic Fintech Compliance Tools (MCP + windsurf IDE) 
 
 A production-ready, enterprise-grade suite of APIs showcasing AI-powered financial compliance automation. This application demonstrates how agentic AI systems can transform compliance processes in financial services with unprecedented accuracy, efficiency, and auditability.
 
